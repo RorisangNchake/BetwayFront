@@ -1,20 +1,17 @@
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import './Modal.scss';
 
 const Modal = ({ closeModal }) => {
-    const [formData, setFormData] = useState();
-    const handleChange = (event) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value
-        })
-    }
 
-    const handleSumbit = async (event) => {
-        event.preventDefault();
+    const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: {
+        username: "",
+        password: ""
+    }});
+
+    const onSubmit = async (data) => {
         const loginData = (await fetch('http://localhost:5000/login', {
             method: 'POST',
-            body: formData,
+            body: data,
         }));
         const res = await loginData.json();
         loginData.ok ? console.log(`Welcome ${res.name}`) : console.log('error');
@@ -28,14 +25,25 @@ const Modal = ({ closeModal }) => {
                 <p className="modal__register">New customer? <a href="https://" target="_blank" rel="noopener noreferrer">Register here</a></p>
                 <span className="hr"></span>
             </div>
-            <form className="form" id='form1'>
+            <form className="form" id='form1' onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="username" className="form__label">Username</label>
-                <input type="text" id='username' name='username' className="form__input" placeholder='username' onChange={handleChange} />
+                <input type="text" id='username'{
+                    ...register('username', {
+                        required: 'username is required',
+                        minLength: { value: 4, message: 'minimum of 4 characters' }
+                    })}
+                    className="form__input" placeholder='username' />
+                    <p className='error'>{errors?.username?.message}</p>
                 <label htmlFor="password" name='password' id='password' className="form__label">Password</label>
-                <input type="password" className="form__input" placeholder='password' name='password' onChange={handleChange} />
+                <input type="password" className="form__input" placeholder='password'{
+                    ...register('password', {
+                        required: 'password is required',
+                        minLength: { value: 8, message: 'minimum of 8 characters' }
+                    })} />
+                    <p className='error'>{errors?.password?.message}</p>
             </form>
             <div className="flex">
-                <button className="form__login" type='submit' form='form1' onClick={handleSumbit}>Login</button>
+                <button className="form__login" type='submit' form='form1'>Login</button>
                 <a href="http://" target="_blank" rel="noopener noreferrer">Forgot Username/Password</a>
             </div>
         </div>
