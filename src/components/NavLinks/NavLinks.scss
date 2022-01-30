@@ -5,8 +5,10 @@
     display: flex;
     padding: .75rem 0;
     background-color: rgba(0, 0, 0, 0.712);
+    justify-content: center;
     &__link {
         flex: 1 1;
+        max-width: 10rem;
         text-decoration: none;
         text-align: center;
         color: rgb(182,182,182);
@@ -28,6 +30,55 @@
         height: 3px;
         top: .75rem;
         background: rgb(0,168,38);
+        opacity: 1;
+    }
+}
+
+.active1 {
+    color: white !important;
+    &::after {
+        display: block;
+        position: relative;
+        content: "";
+        height: 3px;
+        top: .75rem;
+        background: rgb(4, 21, 98);
+        opacity: 1;
+    }
+}
+.active2 {
+    color: white !important;
+    &::after {
+        display: block;
+        position: relative;
+        content: "";
+        height: 3px;
+        top: .75rem;
+        background: rgb(218, 18, 18);
+        opacity: 1;
+    }
+}
+.active3 {
+    color: white !important;
+    &::after {
+        display: block;
+        position: relative;
+        content: "";
+        height: 3px;
+        top: .75rem;
+        background: rgb(255, 161, 201);
+        opacity: 1;
+    }
+}
+.active4 {
+    color: white !important;
+    &::after {
+        display: block;
+        position: relative;
+        content: "";
+        height: 3px;
+        top: .75rem;
+        background: rgb(17, 70, 143);
         opacity: 1;
     }
 }

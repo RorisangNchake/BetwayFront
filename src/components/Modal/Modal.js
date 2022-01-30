@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import './Modal.scss';
 
-const Modal = ({ closeModal }) => {
+const Modal = ({ closeModal, color }) => {
 
     const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: {
         username: "",
@@ -22,7 +22,7 @@ const Modal = ({ closeModal }) => {
             <div className="flex">
                 <button className="close" onClick={() => closeModal(false)}><i class="bi bi-x"></i></button>
                 <h3 className="modal__title">Login</h3>
-                <p className="modal__register">New customer? <a href="https://" target="_blank" rel="noopener noreferrer">Register here</a></p>
+                <p className="modal__register">New customer? <a href="https://" style={{color: color}} target="_blank" rel="noopener noreferrer">Register here</a></p>
                 <span className="hr"></span>
             </div>
             <form className="form" id='form1' onSubmit={handleSubmit(onSubmit)}>
@@ -43,8 +43,8 @@ const Modal = ({ closeModal }) => {
                     <p className='error'>{errors?.password?.message}</p>
             </form>
             <div className="flex">
-                <button className="form__login" type='submit' form='form1'>Login</button>
-                <a href="http://" target="_blank" rel="noopener noreferrer">Forgot Username/Password</a>
+                <button style={{backgroundColor: color}} className="form__login" type='submit' form='form1'>Login</button>
+                <a href="http://" target="_blank" rel="noopener noreferrer" style={{color: color}}>Forgot Username/Password</a>
             </div>
         </div>
     );
