@@ -3,11 +3,13 @@ import './Modal.scss';
 
 const Modal = ({ closeModal, color }) => {
 
+    //useform hook for form data
     const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: {
         username: "",
         password: ""
     }});
 
+    //post request form data on login endpoint
     const onSubmit = async (data) => {
         const loginData = (await fetch('http://localhost:5000/login', {
             method: 'POST',
