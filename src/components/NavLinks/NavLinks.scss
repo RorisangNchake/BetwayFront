@@ -1,0 +1,33 @@
+.navlinks {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: flex;
+    padding: .75rem 0;
+    background-color: rgba(0, 0, 0, 0.712);
+    &__link {
+        flex: 1 1;
+        text-decoration: none;
+        text-align: center;
+        color: rgb(182,182,182);
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: bold;
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.active {
+    color: white !important;
+    &::after {
+        display: block;
+        position: relative;
+        content: "";
+        height: 3px;
+        top: .75rem;
+        background: rgb(0,168,38);
+        opacity: 1;
+    }
+}

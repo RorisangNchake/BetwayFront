@@ -1,0 +1,39 @@
+.navi {
+    align-items: center;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(17, 16, 16);
+    &__logo {
+        height: 1.5rem;
+    }
+    &__button {
+        padding: 0.4rem 1rem;
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        background-color: rgb(0,168,38);
+        &:not(:last-child) {
+            margin-right: 0.4rem;
+        }
+    }
+    &__signup {
+        padding: calc(0.4rem - 1px) calc(1rem - 1px);
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid rgb(0,168,38);
+        border-radius: 2px;
+        color: rgb(0,168,38);
+        &:hover {
+            padding: 0.4rem 1rem;
+            border: none;
+            color: white;
+            background-color: rgb(0,168,38);
+        }
+    }
+}

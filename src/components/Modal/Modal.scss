@@ -1,0 +1,75 @@
+.modal {
+	position: absolute;
+	top: 27%;
+	background-color: white;
+	width: 100%;
+    &__title {
+        margin-bottom: 0;
+        font-weight: 700;
+    }
+    &__register {
+        margin-top: .3rem;
+        > a {
+            text-decoration: underline dotted;
+            font-weight: 600;
+        }
+    }
+}
+
+.hr {
+    border-bottom: 1px solid rgb(231, 231, 231);
+	width: 100%;
+}
+
+.close {
+	position: absolute;
+	right: 0;
+    top: 0.5rem;
+	background-color: white;
+	border: none;
+	font-size: 30px;
+    cursor: pointer;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+    margin: 1.25rem 1.25rem .7rem 1.25rem;
+    &__login {
+        padding: .7rem 5rem;
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        background-color: rgb(0,168,38);
+        margin-bottom: .7rem;
+        align-items: center;
+        text-align: center;
+    }
+    &__input {
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        padding: 1rem;
+        border: 1px solid rgb(221, 221, 221);
+    }
+}
+
+.flex > a {
+    margin-bottom: 4rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: rgb(0,168,38);
+}

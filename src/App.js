@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import NavBar from './components/NavBar/NavBar';
+import NavLinks from './components/NavLinks/NavLinks';
+import Footer from './components/Footer/Footer';
+import Modal from './components/Modal/Modal';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+
+  let [toggleModal, setToggleModal] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {toggleModal && <Modal closeModal={setToggleModal}/>}
+      <NavBar openModal={setToggleModal}/>
+      <NavLinks />
+      <img className='hero' src="/HunchHero.webp" alt="HUNCHERO" />
+      <Footer />
     </div>
   );
 }
